@@ -114,7 +114,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         for i in 0..<sections[section].items.count {
             tableView?.reloadRows(at: [IndexPath(row: i, section: section)], with: .automatic)
         }
-
     }
 
 
