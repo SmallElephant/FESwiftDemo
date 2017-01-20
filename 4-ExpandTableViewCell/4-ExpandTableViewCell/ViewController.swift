@@ -24,23 +24,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     var tableView:UITableView?
     var sections:[ExpandSection] = []
+    var tableHeaderView:UIView!
+    var headerImgView:UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-      
-        tableView = UITableView(frame: CGRect.init(x: 0, y: 64, width:self.view.bounds.width, height: self.view.bounds.height - 64), style: .plain)
-        tableView?.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
-        tableView?.delegate = self
-        tableView?.dataSource = self
-        
-        self.view.addSubview(tableView!)
-        
-        sections = [
-            ExpandSection(title: "简书", items: ["FlyElephant", "keso"]),
-            ExpandSection(title: "编程语言", items: ["Swift", "Objective-C", "JavaScript", "Python"]),
-            ExpandSection(title: "地区", items: ["北京", "河南", "江西"]),
-        ]
+        setUp()
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,7 +38,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK - UITableViewDataSource
+    // MARK: - UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
@@ -98,14 +88,42 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return sections[indexPath.section].expanded ? 44 : 0
     }
     
-    // MARK - UITableViewDelegate
+    // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
+    // MARK: UIScrollViewDelegate
     
-    // MARK - Actions
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY:CGFloat = scrollView.contentOffset.y
+        
+        if offsetY < 0 {
+            let originalHeight:CGFloat = tableHeaderView.height
+            
+            let scale:CGFloat = (originalHeight - offsetY) / originalHeight
+            let transformScale3D:CATransform3D = CATransform3DMakeScale(scale, scale, 1.0);
+            let translation3D:CATransform3D = CATransform3DMakeTranslation(0, offsetY/2, 0);
+            
+            headerImgView.layer.transform = CATransform3DConcat(transformScale3D, translation3D)
+
+        } else {
+            headerImgView.layer.transform = CATransform3DIdentity
+        }
+    }
+    
+    func scrollViewDidScroll1(_ scrollView: UIScrollView) {
+        let offsetY:CGFloat = scrollView.contentOffset.y
+        
+        if offsetY < 0 {
+            headerImgView.y = offsetY
+            headerImgView.height = -offsetY
+        }
+    }
+    
+    
+    // MARK: - Actions
     
     func tapSectionHeader(sender:UITapGestureRecognizer) {
         let section:Int = (sender.view?.tag)!
@@ -115,6 +133,48 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             tableView?.reloadRows(at: [IndexPath(row: i, section: section)], with: .automatic)
         }
     }
+    
+    
+    // MARK: - SetUp
+    
+    func setUp() {
+        tableView = UITableView(frame: CGRect.init(x: 0, y: 64, width:self.view.bounds.width, height: self.view.bounds.height - 64), style: .plain)
+        tableView?.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
+        tableView?.delegate = self
+        tableView?.dataSource = self
+        
+        setUpTableHeader()
+        
+        self.view.addSubview(tableView!)
+        
+        sections = [
+            ExpandSection(title: "简书", items: ["FlyElephant", "keso"]),
+            ExpandSection(title: "编程语言", items: ["Swift", "Objective-C", "JavaScript", "Python"]),
+            ExpandSection(title: "地区", items: ["北京", "河南", "江西"]),
+        ]
+    }
+    
+    func setUpTableHeader() {
+        let frame:CGRect = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 200)
+        
+        tableHeaderView = UIView.init(frame: frame)
+        headerImgView = UIImageView.init(image: UIImage.init(named: "Header.jpeg"))
+        headerImgView.frame = frame
+        headerImgView.contentMode = .scaleAspectFill
+        
+        tableHeaderView.addSubview(headerImgView)
+        tableView?.tableHeaderView = tableHeaderView
+    }
+    
+    func setUpTableHeader1() {
+        let frame:CGRect = CGRect(x: 0, y: -200, width: self.view.bounds.width, height: 200)
+        headerImgView = UIImageView.init(image: UIImage.init(named: "Header.jpeg"))
+        headerImgView.frame = frame
+        headerImgView.contentMode = .scaleAspectFill
+        tableView?.contentInset = UIEdgeInsetsMake(200, 0, 0, 0)
+        tableView?.addSubview(headerImgView)
+    }
+    
 
 
 }

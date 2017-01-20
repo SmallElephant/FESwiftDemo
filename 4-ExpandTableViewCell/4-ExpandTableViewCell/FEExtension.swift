@@ -21,3 +21,128 @@ extension UIColor {
     }
     
 }
+
+extension UIView {
+    
+    // x
+    var x:CGFloat {
+        get {
+            return frame.origin.x
+        }
+        set(newValue) {
+            var tempFrame:CGRect = frame
+            tempFrame.origin.x = newValue
+            frame = tempFrame
+        }
+    }
+    
+    // y
+    var y:CGFloat {
+        get {
+            return frame.origin.x
+        }
+        set(newValue) {
+            var tempFrame:CGRect = frame
+            tempFrame.origin.y = newValue
+            frame = tempFrame
+        }
+    }
+    
+    // top
+    var top:CGFloat {
+        get {
+            return frame.minY
+        }
+        set(newValue) {
+            var tempFrame:CGRect = frame
+            tempFrame.origin.y = newValue
+            frame = tempFrame
+        }
+    }
+    
+    // bottom
+    var bottom:CGFloat {
+        get {
+            return frame.maxY
+        }
+        set(newValue) {
+            var tempFrame:CGRect = frame
+            tempFrame.origin.y = newValue
+            frame = tempFrame
+        }
+    }
+    
+    // left
+    var left:CGFloat {
+        get {
+            return frame.minX
+        }
+        set(newValue) {
+            var tempFrame:CGRect = frame
+            tempFrame.origin.x = newValue
+            frame = tempFrame
+        }
+    }
+    
+    // right
+    var right:CGFloat {
+        get {
+            return frame.maxX
+        }
+        set(newValue) {
+            var tempFrame:CGRect = frame
+            tempFrame.origin.x = newValue
+            frame = tempFrame
+        }
+    }
+    
+    // CenterX
+    var centerX:CGFloat {
+        get {
+            return frame.midX
+        }
+        set(newValue) {
+            var tempFrame:CGRect = frame
+            tempFrame.origin.x = newValue - frame.size.width/2
+            frame = tempFrame
+        }
+    }
+    
+    // CenterY
+    var centerY:CGFloat {
+        get {
+            return frame.minY
+        }
+        set(newValue) {
+            var tempFrame:CGRect = frame
+            tempFrame.origin.y = newValue - frame.size.height/2
+            frame = tempFrame
+        }
+    }
+    
+    // Width
+    var width:CGFloat {
+        get {
+            return frame.size.width
+        }
+        set(newValue) {
+            var tempFrame:CGRect = frame
+            tempFrame.size.width = newValue
+            frame = tempFrame
+        }
+    }
+
+
+    // Height
+    var height:CGFloat {
+        get {
+            return frame.size.height
+        }
+        set(newValue) {
+            var tempFrame:CGRect = frame
+            tempFrame.size.height = newValue
+            frame = tempFrame
+        }
+    }
+
+}
