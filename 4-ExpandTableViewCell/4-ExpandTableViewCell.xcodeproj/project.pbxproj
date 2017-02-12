@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8429BAC1E324539007D1129 /* Header.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A8429BAB1E324539007D1129 /* Header.jpeg */; };
 		C513E3771E310D5500756110 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C513E3761E310D5500756110 /* AppDelegate.swift */; };
 		C513E3791E310D5500756110 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C513E3781E310D5500756110 /* ViewController.swift */; };
 		C513E37C1E310D5500756110 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C513E37A1E310D5500756110 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A8429BAB1E324539007D1129 /* Header.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Header.jpeg; sourceTree = "<group>"; };
 		C513E3731E310D5500756110 /* 4-ExpandTableViewCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "4-ExpandTableViewCell.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C513E3761E310D5500756110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C513E3781E310D5500756110 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				C513E37F1E310D5500756110 /* LaunchScreen.storyboard */,
 				C513E3821E310D5500756110 /* Info.plist */,
 				C513E3A41E31180B00756110 /* FEExtension.swift */,
+				A8429BAB1E324539007D1129 /* Header.jpeg */,
 			);
 			path = "4-ExpandTableViewCell";
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C513E3811E310D5500756110 /* LaunchScreen.storyboard in Resources */,
+				A8429BAC1E324539007D1129 /* Header.jpeg in Resources */,
 				C513E37E1E310D5500756110 /* Assets.xcassets in Resources */,
 				C513E37C1E310D5500756110 /* Main.storyboard in Resources */,
 			);
@@ -507,6 +511,7 @@
 				C513E39D1E310D5600756110 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C513E39E1E310D5600756110 /* Build configuration list for PBXNativeTarget "4-ExpandTableViewCellTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +520,7 @@
 				C513E3A01E310D5600756110 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C513E3A11E310D5600756110 /* Build configuration list for PBXNativeTarget "4-ExpandTableViewCellUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +529,7 @@
 				C513E3A31E310D5600756110 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
