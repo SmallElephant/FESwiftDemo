@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         
         let path:CGMutablePath = CGMutablePath()
       
-        context.addArc(center:CGPoint(x: 150, y: 150), radius: 50, startAngle: 0, endAngle: 1.5*CGFloat(M_PI), clockwise: true)
+        context.addArc(center:CGPoint(x: 150, y: 150), radius: 50, startAngle: 0, endAngle: 1.5*CGFloat(M_PI), clockwise: false)
         
         context.move(to: CGPoint(x: 150, y: 100))
         context.addLine(to: CGPoint(x: 150, y: 150))
