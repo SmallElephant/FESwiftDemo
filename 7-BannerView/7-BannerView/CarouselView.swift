@@ -15,6 +15,7 @@ class CarouselView:UIView,UIScrollViewDelegate {
     var pageControl:UIPageControl!
     var timer:Timer!
     var imgArr:[String] = []
+    var currentIndex:Int = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,6 +40,27 @@ class CarouselView:UIView,UIScrollViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private
+    
+    func playBanner() {
+        if currentIndex == self.imgArr.count { // 滚动到最后一页
+            currentIndex = 1
+        } else {
+            currentIndex += 1
+        }
+        
+         self.scrollView .setContentOffset(CGPoint(x: self.scrollView.frame.width * CGFloat(currentIndex), y: 0), animated: true)
+    }
+    
+    private func stopTimer() {
+        self.timer.invalidate()
+        self.timer = nil
+    }
+    
+    private func startTimer() {
+        self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector:#selector(playBanner), userInfo: nil, repeats: true)
+        RunLoop.current.add(self.timer, forMode: .commonModes)
+    }
     
     // MAARK: - UIScrollViewDelegate
     
@@ -47,11 +69,11 @@ class CarouselView:UIView,UIScrollViewDelegate {
         let width:CGFloat = self.scrollView.frame.width
         print("偏移量\(offsetX)")
         if offsetX < width {
-            self.scrollView.contentOffset = CGPoint(x: width * CGFloat(self.imgArr.count), y: 0)
+            self.scrollView .setContentOffset(CGPoint(x: width * CGFloat(self.imgArr.count), y: 0), animated: true)
         }
         
         if offsetX > (width * CGFloat(self.imgArr.count)) {
-            self.scrollView.contentOffset = CGPoint(x: width, y: 0)
+               self.scrollView .setContentOffset(CGPoint(x: width, y: 0), animated: true)
         }
         
         
@@ -60,11 +82,11 @@ class CarouselView:UIView,UIScrollViewDelegate {
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        
+        stopTimer()
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
+        startTimer()
     }
     
     // MARK: SetUp
@@ -88,12 +110,17 @@ class CarouselView:UIView,UIScrollViewDelegate {
             self.scrollView.addSubview(imgView)
         }
         
+        currentIndex = 1
+        
         self.pageControl.numberOfPages = count
         self.pageControl.currentPage = 0
         self.addSubview(self.pageControl)
         
         self.scrollView.contentOffset = CGPoint(x: width, y: 0)
         self.scrollView.contentSize = CGSize(width: width * CGFloat(count + 2), height: self.scrollView.frame.height)
+        
+        self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector:#selector(playBanner), userInfo: nil, repeats: true)
+        RunLoop.current.add(self.timer, forMode: .commonModes)
     }
     
 }
