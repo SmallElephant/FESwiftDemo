@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8288EE51E6CF22F002DF6E2 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8288EE41E6CF22F002DF6E2 /* BannerView.swift */; };
 		C56358471E6C226C009E41B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56358461E6C226C009E41B8 /* AppDelegate.swift */; };
 		C56358491E6C226C009E41B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56358481E6C226C009E41B8 /* ViewController.swift */; };
 		C563584C1E6C226C009E41B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C563584A1E6C226C009E41B8 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A8288EE41E6CF22F002DF6E2 /* BannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		C56358431E6C226C009E41B8 /* 7-BannerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "7-BannerView.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C56358461E6C226C009E41B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C56358481E6C226C009E41B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				C56358761E6C3BB6009E41B8 /* Beauty1.jpg */,
 				C56358771E6C3BB6009E41B8 /* Beauty2.jpg */,
 				C56358781E6C3BB6009E41B8 /* Beauty3.jpg */,
+				A8288EE41E6CF22F002DF6E2 /* BannerView.swift */,
 			);
 			path = "7-BannerView";
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8288EE51E6CF22F002DF6E2 /* BannerView.swift in Sources */,
 				C56358491E6C226C009E41B8 /* ViewController.swift in Sources */,
 				C56358751E6C2301009E41B8 /* CarouselView.swift in Sources */,
 				C56358471E6C226C009E41B8 /* AppDelegate.swift in Sources */,
@@ -521,6 +525,7 @@
 				C563586D1E6C226C009E41B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C563586E1E6C226C009E41B8 /* Build configuration list for PBXNativeTarget "7-BannerViewTests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +534,7 @@
 				C56358701E6C226C009E41B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C56358711E6C226C009E41B8 /* Build configuration list for PBXNativeTarget "7-BannerViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +543,7 @@
 				C56358731E6C226C009E41B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -30,6 +30,11 @@ class ViewController: UIViewController {
         let imgNames:[String] = ["Beauty1.jpg", "Beauty2.jpg" , "Beauty3.jpg"]
         carouselView.setUp(imageNames: imgNames)
         self.view.addSubview(carouselView)
+        
+       // let bannerView:BannerView = BannerView(frame: CGRect(x: 0, y: 100, width: self.view.frame.width, height: 200))
+        //let imgNames:[String] = ["Beauty1.jpg", "Beauty2.jpg" , "Beauty3.jpg"]
+        //bannerView.setUp(imageNames: imgNames)
+        //self.view.addSubview(bannerView)
     }
 
 
