@@ -49,7 +49,7 @@ class CarouselView:UIView,UIScrollViewDelegate {
             currentIndex += 1
         }
         
-         self.scrollView .setContentOffset(CGPoint(x: self.scrollView.frame.width * CGFloat(currentIndex), y: 0), animated: true)
+         self.scrollView.setContentOffset(CGPoint(x: self.scrollView.frame.width * CGFloat(currentIndex), y: 0), animated: true)
     }
     
     private func stopTimer() {
@@ -67,7 +67,6 @@ class CarouselView:UIView,UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetX:CGFloat = scrollView.contentOffset.x
         let width:CGFloat = self.scrollView.frame.width
-        print("偏移量\(offsetX)")
         if offsetX < width {
             self.scrollView .setContentOffset(CGPoint(x: width * CGFloat(self.imgArr.count), y: 0), animated: true)
         }

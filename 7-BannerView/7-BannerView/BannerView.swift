@@ -68,7 +68,6 @@ class BannerView:UIView,UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetX:CGFloat = scrollView.contentOffset.x
         let width:CGFloat = self.scrollView.frame.width
-        print("偏移量\(offsetX)")
         if offsetX == 0 {
             self.scrollView.setContentOffset(CGPoint(x: width * CGFloat(self.imgArr.count), y: 0), animated: true)
         }
