@@ -19,8 +19,6 @@ class DataManager {
         
         let path:String = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)[0]
         
-        print("应用程序文件目录:\(path)")
-        
         let finalPath:String = path.appending("/\(dataName)")
         
         if sqlite3_open(finalPath, &db) != SQLITE_OK {
@@ -36,7 +34,7 @@ class DataManager {
         var stmt : OpaquePointer? = nil
         
         if sqlite3_prepare_v2(db, querySQL, -1, &stmt, nil) != SQLITE_OK {
-            print("没有准备好查询")
+            print("查询失败")
             return nil
         }
     

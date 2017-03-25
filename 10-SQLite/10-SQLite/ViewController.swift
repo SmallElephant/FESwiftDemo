@@ -24,7 +24,6 @@ class ViewController: UIViewController {
         } else {
             print("数据库表已存在")
         }
-
         
     }
 
