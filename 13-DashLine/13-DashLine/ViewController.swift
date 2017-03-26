@@ -106,7 +106,7 @@ class ViewController: UIViewController {
         let imgView:UIImageView = UIImageView(frame: CGRect(x: 0, y: 250, width: self.view.frame.width, height: 20))
         self.view.addSubview(imgView)
         
-        UIGraphicsBeginImageContext(imgView.frame.size) // 位图上下文绘制区域
+        UIGraphicsBeginImageContext(imgView.frame.size) // 位图上下文绘制区域 FlyElephant
         imgView.image?.draw(in: imgView.bounds)
         
         let context:CGContext = UIGraphicsGetCurrentContext()!
@@ -129,8 +129,6 @@ class ViewController: UIViewController {
         context.addLine(to: CGPoint(x: self.view.frame.width, y: 10))
         context.strokePath()
         
- 
-        
         imgView.image = UIGraphicsGetImageFromCurrentImageContext()
         
     }
@@ -147,7 +145,6 @@ class ViewController: UIViewController {
         shapeLayer.position = CGPoint(x: lineView.frame.width / 2, y: lineView.frame.height / 2)
         
         shapeLayer.fillColor = UIColor.clear.cgColor
-        
         shapeLayer.strokeColor = UIColor.red.cgColor
         
         shapeLayer.lineWidth = 5
