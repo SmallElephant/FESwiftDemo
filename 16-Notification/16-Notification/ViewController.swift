@@ -11,6 +11,8 @@ import UserNotifications
 
 class ViewController: UIViewController {
 
+    var requestIdentifier:String = "FlyElephant---requestIdentifier"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -28,7 +30,7 @@ class ViewController: UIViewController {
         content.title = "Title:温馨提示"
         content.subtitle = "Subtitle:FlyElephant"
         content.sound = UNNotificationSound.default()
-        content.categoryIdentifier = "FlyElephant"
+        content.categoryIdentifier = requestIdentifier
         
         if let path = Bundle.main.path(forResource: "test", ofType: "jpg") {
             let url = URL(fileURLWithPath: path)
@@ -53,6 +55,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func cancelAction(_ sender: UIButton) {
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: [requestIdentifier])
+    }
 
 }
 

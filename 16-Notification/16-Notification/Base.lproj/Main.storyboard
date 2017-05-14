@@ -28,12 +28,22 @@
                                     <action selector="sendNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cPP-W4-ifH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAw-Nj-7Ea">
+                                <rect key="frame" x="50" y="190" width="275" height="30"/>
+                                <state key="normal" title="取消发送"/>
+                                <connections>
+                                    <action selector="cancelAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vdX-4D-mfy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="TAw-Nj-7Ea" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="8x8-DK-dkM"/>
                             <constraint firstAttribute="trailing" secondItem="iom-9q-YMb" secondAttribute="trailing" constant="50" id="E3c-0r-Bkk"/>
                             <constraint firstItem="iom-9q-YMb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="NrG-SJ-iig"/>
+                            <constraint firstItem="TAw-Nj-7Ea" firstAttribute="top" secondItem="iom-9q-YMb" secondAttribute="bottom" constant="40" id="U81-1U-HfE"/>
                             <constraint firstItem="iom-9q-YMb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="rYQ-ef-sve"/>
+                            <constraint firstAttribute="trailing" secondItem="TAw-Nj-7Ea" secondAttribute="trailing" constant="50" id="tez-HO-Zdb"/>
                         </constraints>
                     </view>
                 </viewController>
