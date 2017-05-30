@@ -16,6 +16,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let view:UIView = UIView()
+        view.layer.setNeedsDisplay()
+        
+        view.layer.transform = CATransform3DMakeScale(-1.0,-1.0,1.0);
+        
+        let transform:CGAffineTransform = CGAffineTransform(rotationAngle: 45.0);
+        view.layer.setAffineTransform(transform)
+//        testView.frame
+//        testView.bounds
+        
+//        testView.layer.position
+//        testView.layer.anchorPoint
     }
 
     override func didReceiveMemoryWarning() {
