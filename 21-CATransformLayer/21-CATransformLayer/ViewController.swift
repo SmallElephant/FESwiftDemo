@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-//        setup()
+        setup()
         setup1()
     }
 
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
 
     func layerOfColor(_ color: UIColor, zPosition: CGFloat) -> CALayer {
         let layer = CALayer()
-        layer.frame = CGRect(x: 50, y: 100, width: 100, height: 100)
+        layer.frame = CGRect(x: 50, y: 50, width: 100, height: 100)
         layer.backgroundColor = color.cgColor
         layer.zPosition = zPosition
         layer.opacity = 0.5
@@ -40,8 +40,8 @@ class ViewController: UIViewController {
         
         var perspective = CATransform3DIdentity
         perspective.m34 = -1 / 100
-        layer.backgroundColor = UIColor.gray.cgColor
         layer.transform = CATransform3DRotate(perspective, 0.1, 0, 1, 0)
+        layer.backgroundColor = UIColor.gray.cgColor
         self.view.layer.addSublayer(layer)
     }
     
@@ -53,8 +53,9 @@ class ViewController: UIViewController {
         
         var perspective = CATransform3DIdentity
         perspective.m34 = -1 / 100
-        layer.backgroundColor = UIColor.gray.cgColor
         layer.transform = CATransform3DRotate(perspective, 0.1, 0, 1, 0)
+        layer.backgroundColor = UIColor.gray.cgColor
+        layer.frame = CGRect(x: 0, y: 300, width: 300, height: 300)
         self.view.layer.addSublayer(layer)
     }
 
