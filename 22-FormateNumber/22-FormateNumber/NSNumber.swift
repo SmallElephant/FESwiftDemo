@@ -10,23 +10,12 @@ import Foundation
 
 extension NSNumber {
     
-    func moneyFormate(minDigits: Int = 0, maxDigits:Int = 2) -> String? {
+    func numberFormate(mode: NumberFormatter.RoundingMode, minDigits: Int = 0, maxDigits:Int = 0) -> String? {
         let formate = NumberFormatter()
         formate.numberStyle = NumberFormatter.Style.decimal
         formate.groupingSeparator = ","
         formate.minimumFractionDigits = minDigits
         formate.maximumFractionDigits = maxDigits
-        formate.roundingMode = .ceiling
-        let result = formate.string(from: self)
-        return result
-    }
-    
-    func moneyFormate(mode: NumberFormatter.RoundingMode) -> String? {
-        let formate = NumberFormatter()
-        formate.numberStyle = NumberFormatter.Style.decimal
-        formate.groupingSeparator = ","
-        formate.minimumFractionDigits = 0
-        formate.maximumFractionDigits = 1
         formate.roundingMode = mode
         let result = formate.string(from: self)
         return result

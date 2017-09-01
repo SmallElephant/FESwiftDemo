@@ -13,8 +13,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        testFormate()
-        testRoundMode()
+        testRoundModeCeiling()
+        testRoundModeFloor()
+        testRoundModeUp()
+        testRoundModeDown()
+        testRoundModeHalfup()
+        testRoundModeHalfdown()
+        testRoundModeHalfeven()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,78 +34,376 @@ class ViewController: UIViewController {
     // 12.345
     // 12.342
     // 12.997
-    func testFormate() {
-        var result = NSNumber(value: 12).moneyFormate(minDigits: 2, maxDigits: 2)
+    
+    func testRoundModeCeiling() {
+        print("RoundMode ceiling测试========")
+        var result = NSNumber(value: 8.5).numberFormate(mode: .ceiling)
         if let money = result {
             print("格式化1:\(money)")
         }
         
-        result = NSNumber(value: 12.3).moneyFormate(minDigits: 2, maxDigits: 2)
+        result = NSNumber(value: 7.5).numberFormate(mode: .ceiling)
         if let money = result {
             print("格式化2:\(money)")
         }
         
-        result = NSNumber(value: 12.34).moneyFormate(minDigits: 2, maxDigits: 2)
+        result = NSNumber(value: 2.7).numberFormate(mode: .ceiling)
         if let money = result {
             print("格式化3:\(money)")
         }
         
-        result = NSNumber(value: 1.21).moneyFormate(minDigits: 0, maxDigits: 1)
+        result = NSNumber(value: 2.3).numberFormate(mode: .ceiling)
         if let money = result {
             print("格式化4:\(money)")
         }
-        
-        result = NSNumber(value: 12.345789).moneyFormate(minDigits: 2, maxDigits: 2)
+
+        result = NSNumber(value: 2.0).numberFormate(mode: .ceiling)
         if let money = result {
             print("格式化5:\(money)")
         }
         
-        result = NSNumber(value: 12.342789).moneyFormate(minDigits: 2, maxDigits: 2)
+        result = NSNumber(value: -2.0).numberFormate(mode: .ceiling)
         if let money = result {
             print("格式化6:\(money)")
         }
         
-        result = NSNumber(value: 12.997).moneyFormate(minDigits: 2, maxDigits: 2)
+        result = NSNumber(value: -2.3).numberFormate(mode: .ceiling)
         if let money = result {
             print("格式化7:\(money)")
         }
+        
+        result = NSNumber(value: -2.7).numberFormate(mode: .ceiling)
+        if let money = result {
+            print("格式化8:\(money)")
+        }
+        
+        result = NSNumber(value: -7.5).numberFormate(mode: .ceiling)
+        if let money = result {
+            print("格式化9:\(money)")
+        }
+        
+        result = NSNumber(value: -8.5).numberFormate(mode: .ceiling)
+        if let money = result {
+            print("格式化10:\(money)")
+        }
     }
     
-    func testRoundMode() {
-        print("RoundMode 测试========")
-        var result = NSNumber(value: 12.3456).moneyFormate(mode: .ceiling)
+    func testRoundModeFloor() {
+        print("RoundMode floor测试========")
+        var result = NSNumber(value: 8.5).numberFormate(mode: .floor)
         if let money = result {
-            print("格式化1---\(money)")
+            print("格式化1:\(money)")
         }
         
-        result = NSNumber(value: -12.3466).moneyFormate(mode: .floor)// 四舍五入结果取最小
+        result = NSNumber(value: 7.5).numberFormate(mode: .floor)
         if let money = result {
-            print("格式化2---\(money)")
+            print("格式化2:\(money)")
         }
         
-        result = NSNumber(value: -12.3466).moneyFormate(mode: .down)
+        result = NSNumber(value: 2.7).numberFormate(mode: .floor)
         if let money = result {
-            print("格式化3---\(money)")
+            print("格式化3:\(money)")
         }
         
-        result = NSNumber(value: 12.3456).moneyFormate(mode: .up)
+        result = NSNumber(value: 2.3).numberFormate(mode: .floor)
         if let money = result {
-            print("格式化4---\(money)")
-        }
-//        http://blog.csdn.net/alanzyy/article/details/8465098
-        result = NSNumber(value: 1.142345).moneyFormate(mode: .halfEven)
-        if let money = result {
-            print("格式化5---\(money)")
+            print("格式化4:\(money)")
         }
         
-        result = NSNumber(value: 1.146789).moneyFormate(mode: .halfEven)
+        result = NSNumber(value: 2.0).numberFormate(mode: .floor)
         if let money = result {
-            print("格式化6---\(money)")
+            print("格式化5:\(money)")
         }
         
-        result = NSNumber(value: 12.3456).moneyFormate(mode: .halfUp)
+        result = NSNumber(value: -2.0).numberFormate(mode: .floor)
         if let money = result {
-            print("格式化7---\(money)")
+            print("格式化6:\(money)")
+        }
+        
+        result = NSNumber(value: -2.3).numberFormate(mode: .floor)
+        if let money = result {
+            print("格式化7:\(money)")
+        }
+        
+        result = NSNumber(value: -2.7).numberFormate(mode: .floor)
+        if let money = result {
+            print("格式化8:\(money)")
+        }
+        
+        result = NSNumber(value: -7.5).numberFormate(mode: .floor)
+        if let money = result {
+            print("格式化9:\(money)")
+        }
+        
+        result = NSNumber(value: -8.5).numberFormate(mode: .floor)
+        if let money = result {
+            print("格式化10:\(money)")
+        }
+    }
+    
+    func testRoundModeUp() {
+        print("RoundMode up测试========")
+        var result = NSNumber(value: 8.5).numberFormate(mode: .up)
+        if let money = result {
+            print("格式化1:\(money)")
+        }
+        
+        result = NSNumber(value: 7.5).numberFormate(mode: .up)
+        if let money = result {
+            print("格式化2:\(money)")
+        }
+        
+        result = NSNumber(value: 2.7).numberFormate(mode: .up)
+        if let money = result {
+            print("格式化3:\(money)")
+        }
+        
+        result = NSNumber(value: 2.3).numberFormate(mode: .up)
+        if let money = result {
+            print("格式化4:\(money)")
+        }
+        
+        result = NSNumber(value: 2.0).numberFormate(mode: .up)
+        if let money = result {
+            print("格式化5:\(money)")
+        }
+        
+        result = NSNumber(value: -2.0).numberFormate(mode: .up)
+        if let money = result {
+            print("格式化6:\(money)")
+        }
+        
+        result = NSNumber(value: -2.3).numberFormate(mode: .up)
+        if let money = result {
+            print("格式化7:\(money)")
+        }
+        
+        result = NSNumber(value: -2.7).numberFormate(mode: .up)
+        if let money = result {
+            print("格式化8:\(money)")
+        }
+        
+        result = NSNumber(value: -7.5).numberFormate(mode: .up)
+        if let money = result {
+            print("格式化9:\(money)")
+        }
+        
+        result = NSNumber(value: -8.5).numberFormate(mode: .up)
+        if let money = result {
+            print("格式化10:\(money)")
+        }
+    }
+    
+    func testRoundModeDown() {
+        print("RoundMode down测试========")
+        var result = NSNumber(value: 8.5).numberFormate(mode: .down)
+        if let money = result {
+            print("格式化1:\(money)")
+        }
+        
+        result = NSNumber(value: 7.5).numberFormate(mode: .down)
+        if let money = result {
+            print("格式化2:\(money)")
+        }
+        
+        result = NSNumber(value: 2.7).numberFormate(mode: .down)
+        if let money = result {
+            print("格式化3:\(money)")
+        }
+        
+        result = NSNumber(value: 2.3).numberFormate(mode: .down)
+        if let money = result {
+            print("格式化4:\(money)")
+        }
+        
+        result = NSNumber(value: 2.0).numberFormate(mode: .down)
+        if let money = result {
+            print("格式化5:\(money)")
+        }
+        
+        result = NSNumber(value: -2.0).numberFormate(mode: .down)
+        if let money = result {
+            print("格式化6:\(money)")
+        }
+        
+        result = NSNumber(value: -2.3).numberFormate(mode: .down)
+        if let money = result {
+            print("格式化7:\(money)")
+        }
+        
+        result = NSNumber(value: -2.7).numberFormate(mode: .down)
+        if let money = result {
+            print("格式化8:\(money)")
+        }
+        
+        result = NSNumber(value: -7.5).numberFormate(mode: .down)
+        if let money = result {
+            print("格式化9:\(money)")
+        }
+        
+        result = NSNumber(value: -8.5).numberFormate(mode: .down)
+        if let money = result {
+            print("格式化10:\(money)")
+        }
+    }
+    
+    func testRoundModeHalfup() {
+        print("RoundMode halfup测试========")
+        var result = NSNumber(value: 8.5).numberFormate(mode: .halfUp)
+        if let money = result {
+            print("格式化1:\(money)")
+        }
+        
+        result = NSNumber(value: 7.5).numberFormate(mode: .halfUp)
+        if let money = result {
+            print("格式化2:\(money)")
+        }
+        
+        result = NSNumber(value: 2.7).numberFormate(mode: .halfUp)
+        if let money = result {
+            print("格式化3:\(money)")
+        }
+        
+        result = NSNumber(value: 2.3).numberFormate(mode: .halfUp)
+        if let money = result {
+            print("格式化4:\(money)")
+        }
+        
+        result = NSNumber(value: 2.0).numberFormate(mode: .halfUp)
+        if let money = result {
+            print("格式化5:\(money)")
+        }
+        
+        result = NSNumber(value: -2.0).numberFormate(mode: .halfUp)
+        if let money = result {
+            print("格式化6:\(money)")
+        }
+        
+        result = NSNumber(value: -2.3).numberFormate(mode: .halfUp)
+        if let money = result {
+            print("格式化7:\(money)")
+        }
+        
+        result = NSNumber(value: -2.7).numberFormate(mode: .halfUp)
+        if let money = result {
+            print("格式化8:\(money)")
+        }
+        
+        result = NSNumber(value: -7.5).numberFormate(mode: .halfUp)
+        if let money = result {
+            print("格式化9:\(money)")
+        }
+        
+        result = NSNumber(value: -8.5).numberFormate(mode: .halfUp)
+        if let money = result {
+            print("格式化10:\(money)")
+        }
+    }
+    
+    func testRoundModeHalfdown() {
+        print("RoundMode halfDown测试========")
+        var result = NSNumber(value: 8.5).numberFormate(mode: .halfDown)
+        if let money = result {
+            print("格式化1:\(money)")
+        }
+        
+        result = NSNumber(value: 7.5).numberFormate(mode: .halfDown)
+        if let money = result {
+            print("格式化2:\(money)")
+        }
+        
+        result = NSNumber(value: 2.7).numberFormate(mode: .halfDown)
+        if let money = result {
+            print("格式化3:\(money)")
+        }
+        
+        result = NSNumber(value: 2.3).numberFormate(mode: .halfDown)
+        if let money = result {
+            print("格式化4:\(money)")
+        }
+        
+        result = NSNumber(value: 2.0).numberFormate(mode: .halfDown)
+        if let money = result {
+            print("格式化5:\(money)")
+        }
+        
+        result = NSNumber(value: -2.0).numberFormate(mode: .halfDown)
+        if let money = result {
+            print("格式化6:\(money)")
+        }
+        
+        result = NSNumber(value: -2.3).numberFormate(mode: .halfDown)
+        if let money = result {
+            print("格式化7:\(money)")
+        }
+        
+        result = NSNumber(value: -2.7).numberFormate(mode: .halfDown)
+        if let money = result {
+            print("格式化8:\(money)")
+        }
+        
+        result = NSNumber(value: -7.5).numberFormate(mode: .halfDown)
+        if let money = result {
+            print("格式化9:\(money)")
+        }
+        
+        result = NSNumber(value: -8.5).numberFormate(mode: .halfDown)
+        if let money = result {
+            print("格式化10:\(money)")
+        }
+    }
+    
+    
+    func testRoundModeHalfeven() {
+        print("RoundMode halfEven测试========")
+        var result = NSNumber(value: 8.5).numberFormate(mode: .halfEven)
+        if let money = result {
+            print("格式化1:\(money)")
+        }
+        
+        result = NSNumber(value: 7.5).numberFormate(mode: .halfEven)
+        if let money = result {
+            print("格式化2:\(money)")
+        }
+        
+        result = NSNumber(value: 2.7).numberFormate(mode: .halfEven)
+        if let money = result {
+            print("格式化3:\(money)")
+        }
+        
+        result = NSNumber(value: 2.3).numberFormate(mode: .halfEven)
+        if let money = result {
+            print("格式化4:\(money)")
+        }
+        
+        result = NSNumber(value: 2.0).numberFormate(mode: .halfEven)
+        if let money = result {
+            print("格式化5:\(money)")
+        }
+        
+        result = NSNumber(value: -2.0).numberFormate(mode: .halfEven)
+        if let money = result {
+            print("格式化6:\(money)")
+        }
+        
+        result = NSNumber(value: -2.3).numberFormate(mode: .halfEven)
+        if let money = result {
+            print("格式化7:\(money)")
+        }
+        
+        result = NSNumber(value: -2.7).numberFormate(mode: .halfEven)
+        if let money = result {
+            print("格式化8:\(money)")
+        }
+        
+        result = NSNumber(value: -7.5).numberFormate(mode: .halfEven)
+        if let money = result {
+            print("格式化9:\(money)")
+        }
+        
+        result = NSNumber(value: -8.5).numberFormate(mode: .halfEven)
+        if let money = result {
+            print("格式化10:\(money)")
         }
     }
 
