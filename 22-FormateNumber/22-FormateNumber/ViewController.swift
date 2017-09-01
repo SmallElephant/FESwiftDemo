@@ -87,7 +87,7 @@ class ViewController: UIViewController {
         if let money = result {
             print("格式化4---\(money)")
         }
-        
+//        http://blog.csdn.net/alanzyy/article/details/8465098
         result = NSNumber(value: 1.142345).moneyFormate(mode: .halfEven)
         if let money = result {
             print("格式化5---\(money)")
