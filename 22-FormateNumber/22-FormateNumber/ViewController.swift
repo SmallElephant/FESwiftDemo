@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     // 12.997
     
     func testRoundModeCeiling() {
-        print("RoundMode ceiling测试========")
+        print("FlyElephant RoundMode ceiling测试========")
         var result = NSNumber(value: 8.5).numberFormate(mode: .ceiling)
         if let money = result {
             print("格式化1:\(money)")
@@ -89,7 +89,7 @@ class ViewController: UIViewController {
     }
     
     func testRoundModeFloor() {
-        print("RoundMode floor测试========")
+        print("FlyElephant RoundMode floor测试========")
         var result = NSNumber(value: 8.5).numberFormate(mode: .floor)
         if let money = result {
             print("格式化1:\(money)")
@@ -142,7 +142,7 @@ class ViewController: UIViewController {
     }
     
     func testRoundModeUp() {
-        print("RoundMode up测试========")
+        print("FlyElephant RoundMode up测试========")
         var result = NSNumber(value: 8.5).numberFormate(mode: .up)
         if let money = result {
             print("格式化1:\(money)")
@@ -195,7 +195,7 @@ class ViewController: UIViewController {
     }
     
     func testRoundModeDown() {
-        print("RoundMode down测试========")
+        print("FlyElephant RoundMode down测试========")
         var result = NSNumber(value: 8.5).numberFormate(mode: .down)
         if let money = result {
             print("格式化1:\(money)")
@@ -248,7 +248,7 @@ class ViewController: UIViewController {
     }
     
     func testRoundModeHalfup() {
-        print("RoundMode halfup测试========")
+        print("FlyElephant RoundMode halfup测试========")
         var result = NSNumber(value: 8.5).numberFormate(mode: .halfUp)
         if let money = result {
             print("格式化1:\(money)")
@@ -301,7 +301,7 @@ class ViewController: UIViewController {
     }
     
     func testRoundModeHalfdown() {
-        print("RoundMode halfDown测试========")
+        print("FlyElephant RoundMode halfDown测试========")
         var result = NSNumber(value: 8.5).numberFormate(mode: .halfDown)
         if let money = result {
             print("格式化1:\(money)")
@@ -355,7 +355,7 @@ class ViewController: UIViewController {
     
     
     func testRoundModeHalfeven() {
-        print("RoundMode halfEven测试========")
+        print("FlyElephant RoundMode halfEven测试========")
         var result = NSNumber(value: 8.5).numberFormate(mode: .halfEven)
         if let money = result {
             print("格式化1:\(money)")
